@@ -49,10 +49,3 @@ if __name__ == "__main__":
     # --now flag: run once immediately and exit (useful for testing)
     if "--now" in sys.argv:
         run_agent()
-    else:
-        # Schedule the agent to run every day at 12:00pm
-        schedule.every().day.at("10:00").do(run_agent)
-        print("⏰  Agente programado para las 12:00pm cada día. Esperando...")
-        while True:
-            schedule.run_pending()
-            time.sleep(60)  # Check every minute
