@@ -88,8 +88,8 @@ def select_days(state: AgentState) -> dict:
 
         Tu tarea:
         - Identifica todos los días especiales mencionados.
-        - Elige los 1-2 días MÁS DIVERTIDOS, curiosos o especiales (por ejemplo, "Día de la Croqueta"
-        es más divertido que "Día Mundial de la Salud").
+        - Elige los 1-2 días MÁS RELEVANTES, IMPORTANTES, curiosos o especiales (por ejemplo, "Día Mundial de la Salud",
+        es mucho mas relevante e importante que "Dia de la Croqueta").
         - Para cada día elegido, escribe su nombre y una breve descripción (2-3 frases) de por qué
         se celebra y qué lo hace especial.
         - Responde SOLO con los días elegidos y sus descripciones, nada más.
@@ -119,6 +119,44 @@ def draft_email(state: AgentState) -> dict:
             - El cuerpo del email debe estar en formato HTML (usa <b> para negritas, <br> para saltos de línea, etc.)
             - NO uses markdown (como **texto**). Usa etiquetas HTML.
             - Formato: ASUNTO: (el asunto del email)   CUERPO:(el cuerpo del email) Un saludo, [Tu nombre]
+
+            EJEMPLO DE EMAIL:
+                📚 Hoy celebramos el Día del Libro 📚
+
+                    Cada 23 de abril se celebra el Día Mundial del Libro y del Derecho de Autor (y el cumpleaños de Fernando corbacho y Claudia Ceica 😊), una fecha impulsada por la UNESCO para rendir homenaje a los libros, a la lectura y a quienes los escriben
+
+                📖 ¿Qué es el Día del Libro?
+
+                    Es un día para poner en valor el poder de los libros como fuente de conocimiento, cultura, imaginación y aprendizaje. La UNESCO lo instauró oficialmente en 1995 con el objetivo de fomentar la lectura y proteger la creatividad de autoras y autores
+
+                📅 ¿Por qué se celebra el 23 de abril?
+
+                        Porque en esta fecha, en 1616, fallecieron grandes figuras de la literatura universal como Miguel de Cervantes, William Shakespeare y el Inca Garcilaso de la Vega, lo que convierte este día en un símbolo para la literatura a nivel mundial
+
+                🌍 ¿Qué se hace en este día?
+
+                    En muchos países se organizan:
+
+                    Ferias del libro y firmas de ejemplares
+                    Lecturas públicas y encuentros con autoras y autores
+                    Actividades en bibliotecas, colegios y empresas
+                    En algunas zonas, como Cataluña, es tradición regalar un libro y una rosa, uniendo cultura y cariño 🌹📘
+
+                    En Madrid han puesto una “biblioteca” al aire libre: está en el matadero.
+
+                🏢 ¿Qué podemos hacer en la oficina?
+
+                    Aprovechemos el día para compartir nuestra pasión lectora:
+
+                    📚 Recomendar ese libro que nos marcó (o el que tenemos en la mesilla)
+                    💬 Compartir citas literarias que nos inspiran
+                    🔄 Intercambiar libros entre compañer@s
+                    ☕ Reservar un ratito para leer, aunque sea unas páginas
+                    Porque los libros abren la mente, generan conversación y nos conectan… incluso en el trabajo 😊
+
+                ✨ Feliz Día del Libro ✨
+
+                ¿Qué libro recomendarías hoy? Yo os dejo un Excel compartido con los libros que he leído este año, podéis añadir más 
     """
 
     prompt = f"""{system_prompt}
