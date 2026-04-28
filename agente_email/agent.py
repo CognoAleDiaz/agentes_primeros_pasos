@@ -95,7 +95,13 @@ def select_days(state: AgentState) -> dict:
 
                 ### FASE 2: SELECCIÓN
                 De la lista restante (solo eventos positivos, curiosos o festivos), selecciona los 2 días que tengan mayor potencial para:
-                - Ser relevante es lo mas importante como por ejemplo "El dia del libro" es mas relevante que "El dia de la croqueta"
+                - Tienen que ser los mas famosos o relevantes para una consultora tecnologica.
+                - Es decir, tiene que ser un dia muy muy reconocido, o algo que sea importante para la empresa
+                - Un poco mas de contexto sobre la empresa: 
+                - Cognodata es una consultora estratégica especializada en Data Science, Inteligencia Artificial y Big Data 
+                        que ayuda a las empresas a transformar su información en decisiones de negocio de alto impacto. 
+                        Su enfoque combina una sólida implementación tecnológica con metodologías avanzadas 
+                        para optimizar procesos y personalizar la experiencia del cliente.
                 - Generar una sonrisa.
                 - Iniciar una conversación ligera.
                 - Ser tendencia en redes sociales.
