@@ -87,12 +87,21 @@ def select_days(state: AgentState) -> dict:
         {state['search_results']}
 
         Tu tarea:
-        - Identifica todos los días especiales mencionados.
-        - Elige los 1-2 días MÁS RELEVANTES, IMPORTANTES, curiosos o especiales (por ejemplo, "Día Mundial de la Salud",
-        es mucho mas relevante e importante que "Dia de la Croqueta").
-        - Para cada día elegido, escribe su nombre y una breve descripción (2-3 frases) de por qué
-        se celebra y qué lo hace especial.
-        - Responde SOLO con los días elegidos y sus descripciones, nada más.
+                ### FASE 1: FILTRADO (CRÍTICO)
+                Antes de elegir, analiza la lista de días disponibles y elimina inmediatamente cualquier día que cumpla con estos criterios:
+                1. Conmemoraciones de tragedias, guerras, genocidios o desastres.
+                2. Temas políticos, religiosos o conflictos sociales.
+                3. Días de concienciación médica grave (enfermedades, luto).
+
+                ### FASE 2: SELECCIÓN
+                De la lista restante (solo eventos positivos, curiosos o festivos), selecciona los 2 días que tengan mayor potencial para:
+                - Ser relevante es lo mas importante como por ejemplo "El dia del libro" es mas relevante que "El dia de la croqueta"
+                - Generar una sonrisa.
+                - Iniciar una conversación ligera.
+                - Ser tendencia en redes sociales.
+                - Solo incluir dias sobre comida si es algo muy muy especial para los españoles.
+
+            Responde SOLO con los días elegidos y sus descripciones, nada más. TODO EN ESPAÑOL (MUY IMPORTANTE)
     """
 
     response = llm.invoke(prompt)
@@ -191,6 +200,7 @@ def check_email_draft(state: AgentState) -> dict:
             Asegúrate de que hay etiquetas <br> justo después del saludo inicial,
             Asegúrate de que hay etiquetas <br> justo antes del Un saludo,
             Asegúrate de que hay una etiqueta <br> justo despues del Un saludo, y antes del nombre del remitente.
+            POR ULTIMO: ASEGURATE DE QUE LOS <br> son dobles, es decir convierte <br> en <br><br>
             Solo responde con el email corregido, nada más.
     """
 
@@ -224,8 +234,6 @@ def send_email(state: AgentState) -> dict:
     body = lines[1].strip() if len(lines) > 1 else draft
     body = body.replace("CUERPO: ", "")
     body = body.replace("[Tu nombre]", os.getenv("USER_NAME"))
-
-
 
     # SMTP credentials from .env
     sender_email = os.getenv("SENDER_EMAIL")
