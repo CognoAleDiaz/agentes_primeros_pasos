@@ -87,13 +87,13 @@ def select_days(state: AgentState) -> dict:
         {state['search_results']}
 
         Tu tarea:
-                ### FASE 1: FILTRADO (CRÍTICO)
+                FASE 1: FILTRADO (CRÍTICO)
                 Antes de elegir, analiza la lista de días disponibles y elimina inmediatamente cualquier día que cumpla con estos criterios:
                 1. Conmemoraciones de tragedias, guerras, genocidios o desastres.
                 2. Temas políticos, religiosos o conflictos sociales.
                 3. Días de concienciación médica grave (enfermedades, luto).
 
-                ### FASE 2: SELECCIÓN
+                FASE 2: SELECCIÓN
                 De la lista restante (solo eventos positivos, curiosos o festivos), selecciona los 2 días que tengan mayor potencial para:
                 - Tienen que ser los mas famosos o relevantes para una consultora tecnologica.
                 - Es decir, tiene que ser un dia muy muy reconocido, o algo que sea importante para la empresa
@@ -133,7 +133,7 @@ def draft_email(state: AgentState) -> dict:
             - No incluyas palabras en ingles, a menos que sea absolutamente necesario.
             - El cuerpo del email debe estar en formato HTML (usa <b> para negritas, <br> para saltos de línea, etc.)
             - NO uses markdown (como **texto**). Usa etiquetas HTML.
-            - Formato: ASUNTO: (el asunto del email)   CUERPO:(el cuerpo del email) Un saludo, [Tu nombre]
+            - Formato: ASUNTO: (el asunto del email)   CUERPO: (el cuerpo del email) Un saludo, [Tu nombre]
 
             EJEMPLO DE EMAIL:
                 📚 Hoy celebramos el Día del Libro 📚
@@ -195,19 +195,19 @@ def check_email_draft(state: AgentState) -> dict:
     """Check the email draft for accuracy and grammar."""
 
     system_prompt = """Eres un corrector de emails.
-            Tu trabajo es revisar el email draft y corregir cualquier error de gramática o ortografía.
-            Asegúrate de que todo tiene sentido, se lee de forma fluida y es coherente.
-            Asegurate tambien de que no haya palabras en ingles, a menos que sea absolutamente necesario.
-            El formato es primero el asunto y luego el cuerpo del email.
-            Asegurate de que el email termina en Un saludo,
-            Asegurate de que no hay nada repetido en el email.
-            IMPORTANTE: El cuerpo del email está en formato HTML. Mantén todas las etiquetas HTML (<b>, <br>, <p>, etc.) intactas.
-            Asegúrate de que hay etiquetas <br> para los saltos de línea entre párrafos y secciones.
-            Asegúrate de que hay etiquetas <br> justo después del saludo inicial,
-            Asegúrate de que hay etiquetas <br> justo antes del Un saludo,
-            Asegúrate de que hay una etiqueta <br> justo despues del Un saludo, y antes del nombre del remitente.
-            POR ULTIMO: ASEGURATE DE QUE LOS <br> son dobles, es decir convierte <br> en <br><br>
-            Solo responde con el email corregido, nada más.
+            Tu trabajo es revisar el email y corregir cualquier error.
+            - Asegúrate de que todo tiene sentido, se lee de forma fluida y es coherente.
+            - Asegurate tambien de que no haya palabras en ingles, a menos que sea absolutamente necesario.
+            - El formato es primero el asunto y luego el cuerpo del email.
+            - Asegurate de que el email termina en Un saludo,
+            - Asegurate de que no hay nada repetido en el email.
+            - IMPORTANTE: El cuerpo del email está en formato HTML. Mantén todas las etiquetas HTML (<b>, <br>, <p>, etc.) intactas.
+            - Asegúrate de que hay etiquetas <br> para los saltos de línea entre párrafos y secciones.
+            - Asegúrate de que hay etiquetas <br> justo después del saludo inicial,
+            - Asegúrate de que hay etiquetas <br> justo antes del Un saludo,
+            - Asegúrate de que hay una etiqueta SOLO UN <br> justo despues del Un saludo, y antes del nombre del remitente.
+            - POR ULTIMO: ASEGURATE DE QUE LOS <br> son dobles, es decir convierte <br> en <br><br> a menos que se indique lo contrario.
+            - Solo responde con el email corregido, nada más.
     """
 
     prompt = f"""{system_prompt}
